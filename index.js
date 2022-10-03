@@ -25,7 +25,6 @@ removeButton.forEach((btn) => {
 
 const theDate = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
 
-
 const dateDiv = document.querySelector('.date');
 dateDiv.innerHTML = theDate;
 
