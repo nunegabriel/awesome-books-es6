@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <nav class="nav-bar">
+      <h2 class="nav-title">Awesome books</h2>
+      <ul class="nav-links">
+        <li id ="list-link" class="link"><a href="#">List</a></li>
+        <li><span class="separator2"></span></li>
+        <li id ="list-new" class="link"><a href="#">Add new</a></li>
+        <li><span class="separator2"></span></li>
+        <li id ="list-contact" class="link"><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="date"></div>
+  <main class="big-container">
+    <div class="book-list">
+      <h1 class="project-title">All awesome books</h1><br>
+      <table class="book-container">
+      </table>
+    </div>
+
+    <div class="add-new hide">
+      <h2 class="add-title">Add a new book</h2>
+      <form action="#" class="book-form">
+        <input type="text" id="title" name="title" placeholder="Title"><br><br>
+        <input type="text" id="author" name="author" placeholder="Author"><br><br>
+        <button class="add-btn" type="submit">Add</button>
+      </form>
+    </div>
+
+    <div class="contact hide">
+      <h2 class="title">Contact information</h2>
+      <div class="contact-body">
+        <p class="contact-info">Do you have any questions or you just want to say Hello? <br> You can reach out to us!</p>
+      <ul class="contact-details">
+        <li>Our email: mail@mail.com</li>
+        <li>Our phone number: 00436598246</li>
+        <li>Our address: Streetname 22, 84503 City, Country</li>
+      </ul>
+      </div>
+    </div>
+
+  </main>
+  <footer class="copyright">
+    <p class="copyright-text">
+      Copyright ...
+    </p>
+  </footer>
+
+  
+  <script type="module" src="./Js/script.js"></script>
+  
+</body>
+
+</html>
