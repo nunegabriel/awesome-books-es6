@@ -1,72 +1,10 @@
-import Book from './modules/Book.js';
-
-class Books {
-  constructor() {
-    this.books = [];
-  }
-
-  add(title, author) {
-    const book = new Book(title, author);
-    this.books.push(book);
-    return book;
-  }
-
-  set assignBook(books) {
-    this.books = books;
-  }
-
-  get allBooks() {
-    return this.books;
-  }
-
-  remove(obj) {
-    let localBooks = JSON.parse(localStorage.getItem('books'));
-    localBooks = localBooks.filter((b) => b.title !== obj.title || b.author !== obj.author);
-    localStorage.setItem('books', JSON.stringify(localBooks));
-    this.books = localBooks;
-    return this.books;
-  }
-}
-
-const bookContainer = document.querySelector('.book-container');
-const addBtn = document.querySelector('.add-btn');
-const titleInput = document.querySelector('#title');
-const authorInput = document.querySelector('#author');
+import displayBook from './modules/displayBook.js';
+import Books from './modules/Books.js';
+import { DateTime } from './modules/luxon.js';
 
 const bk = new Books();
 
-if (localStorage.getItem('books') === null) {
-  bk.assignBook = [];
-} else {
-  bk.assignBook = JSON.parse(localStorage.getItem('books'));
-}
-
-const books = bk.allBooks;
-
-function displayBook(books) {
-  books.forEach((book) => {
-    const bookDiv = document.createElement('tr');
-    bookDiv.className = 'book';
-    const bookInfo = document.createElement('td');
-    const removeBtn = document.createElement('button');
-    bookInfo.className = 'book-info';
-    removeBtn.className = 'remove-btn';
-    bookInfo.innerHTML = `"<strong class = "book-title">${book.title}</strong>" by <strong class = "book-author">${book.author}</strong>`;
-    removeBtn.textContent = 'Remove';
-    bookDiv.appendChild(bookInfo);
-    bookDiv.appendChild(removeBtn);
-    bookContainer.appendChild(bookDiv);
-  });
-}
-
-addBtn.addEventListener('click', () => {
-  bk.add(titleInput.value, authorInput.value);
-  const booksStr = JSON.stringify(books);
-  localStorage.setItem('books', booksStr);
-  window.location.reload();
-});
-
-displayBook(books);
+displayBook();
 
 const removeButton = document.querySelectorAll('.remove-btn');
 
@@ -85,7 +23,7 @@ removeButton.forEach((btn) => {
   });
 });
 
-const theDate = new Date().toUTCString();
+const theDate = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
 
 const dateDiv = document.querySelector('.date');
 dateDiv.innerHTML = theDate;
