@@ -6,7 +6,6 @@ const bk = new Books();
 
 displayBook();
 
-
 const removeButton = document.querySelectorAll('.remove-btn');
 
 removeButton.forEach((btn) => {
