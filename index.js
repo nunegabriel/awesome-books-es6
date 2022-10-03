@@ -6,6 +6,7 @@ const bk = new Books();
 
 displayBook();
 
+
 const removeButton = document.querySelectorAll('.remove-btn');
 
 removeButton.forEach((btn) => {
@@ -24,6 +25,7 @@ removeButton.forEach((btn) => {
 });
 
 const theDate = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
+
 
 const dateDiv = document.querySelector('.date');
 dateDiv.innerHTML = theDate;
